@@ -32,17 +32,17 @@ The Transcript Platform serves three primary user types:
 
 - **Framework**: Next.js 14+ with App Router, TypeScript, Tailwind CSS
 - **Backend**: Next.js API routes, PostgreSQL with Prisma ORM
-- **Hosting**: Vercel frontend, PlanetScale database, Redis caching
+- **Hosting**: Vercel frontend, PostgreSQL and Redis TBD
 - **Styling**: Tailwind CSS with custom components
-- **State Management**: Zustand, React Hook Form
-- **UI Components**: Radix UI, Lucide React icons
+- **State Management**: TBD
+- **UI Components**: TBD
 - **Data**: 25+ transcription vendor profiles with real-time pricing and features
 
 ## Quick Start
 
 ### Run Development Environment
 ```bash
-git clone <repository-url> && cd Transcript
+git clone <repo> && cd <dir>
 npm install
 cp .env.example .env && # edit with your credentials
 npx prisma migrate dev
@@ -80,3 +80,4 @@ vercel --prod
 **Version**: 0.1  
 **Date**: August 2025  
 **Copyright**: 2025 Transcript Developers
+
