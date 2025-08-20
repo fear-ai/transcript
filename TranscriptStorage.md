@@ -757,3 +757,4 @@ The storage strategy provides a **clear migration path** from simple file-based 
 **Version**: 0.2  
 **Date**: August 2025  
 **Copyright**: 2025 Transcript Developers
+

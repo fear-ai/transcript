@@ -44,7 +44,7 @@ This document defines the system architecture and design decisions for the Trans
 - Prisma provides type-safe database operations and migrations
 - Performance optimized for read-heavy comparison workloads
 
-**Alternatives Considered**: MongoDB (lacks relational benefits), SQLite (scaling limitations), Supabase (vendor lock-)
+**Alternatives Considered**: MongoDB (lacks relational benefits), SQLite (scaling limitations), Supabase (vendor lock-in)
 
 ### 1.3 Infrastructure Decisions
 
@@ -63,6 +63,21 @@ This document defines the system architecture and design decisions for the Trans
 - Branch-based development workflow for database changes
 - Built-in connection pooling and performance optimization
 - Global distribution for low-latency access
+
+### 1.4 Current Technology Implementation Status
+**Confirmed Technology Choices**:
+- **Frontend**: Next.js 14+ with App Router, TypeScript, Tailwind CSS
+- **Storage Phase I**: Compiled files (CSV/JSON → TypeScript at build time)
+- **Storage Phase II**: Redis + static files (Upstash + Vercel)
+- **Storage Phase III+**: PostgreSQL + Redis (PlanetScale + Upstash)
+- **Hosting**: Vercel for deployment and hosting
+- **Development**: 5 phases over 10 months, 7 FTE by completion
+
+**Implementation Requirements**:
+- Custom build scripts with npm hooks (predev, prebuild) for data compilation
+- Hybrid data structure: core fields typed, features as JSON
+- Environment variables with .env files for configuration
+- Vercel Analytics for initial user behavior tracking
 
 ## 2. Data Architecture
 
@@ -246,8 +261,34 @@ User (1) → (N) Comparison
 - Enables broader market adoption
 - Legal requirement for many organizations
 
+## 8. Business & Market Requirements
+
+### 8.1 Market Positioning
+**Target Markets**: Amateur content creators, professionals, agencies, enterprises
+**Geographic Focus**: North America primary, global expansion planned
+**Industry Verticals**: Media & entertainment, technology, healthcare, legal, education
+**Competitive Advantages**: Comprehensive vendor coverage, user-centric design, data accuracy
+
+### 8.2 Revenue Model
+**Phase 1**: Free service with vendor referral links and affiliate programs
+**Phase 2**: Premium comparison tools and reports
+**Phase 3**: Vendor listing fees, advertising, and partnership programs
+**Phase 4**: Enterprise comparison tools and reseller opportunities
+
+### 8.3 Partnership Strategy
+**Primary Focus**: Otter.ai, Rev, Sonix, Trint, Descript affiliate programs
+**Revenue Potential**: 15-60% commission rates, recurring revenue models
+**Implementation Priority**: Phase 1 (established programs), Phase 2 (recurring revenue)
+**Strategic Partnerships**: Enterprise co-seller agreements, technology integrations
+
+### 8.4 Success Metrics
+**User Adoption**: 10,000+ monthly active users by Phase IV
+**Data Coverage**: 25+ vendors with comprehensive information
+**Revenue Generation**: $50,000+ annual recurring revenue by Phase IV
+**Performance**: <3 second page loads, <1 second search response, 99.9%+ uptime
+
 ---
 
-**Version**: 0.1  
+**Version**: 0.2  
 **Date**: August 2025  
 **Copyright**: 2025 Transcript Developers
